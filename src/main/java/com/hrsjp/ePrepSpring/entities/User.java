@@ -36,11 +36,7 @@ public class User {
 	private String phone;
 	@Column(length = 100)
 	private String profile;
-	private boolean enabled = true;
-	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
-	@JsonIgnore
-	private Set<UserRole> userRoles = new HashSet<>();
+	private boolean enabled = false;
 	
 	public User() {}
 
@@ -128,14 +124,6 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-	}
-
-	public Set<UserRole> getUserRoles() {
-		return userRoles;
-	}
-
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
 	}
 
 	@Override
