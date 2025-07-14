@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +51,12 @@ public class UserController {
 		Map<String, String> message = new HashMap<>();
 		message.put("message", "User deleted successfully!");
 		return new ResponseEntity<>(message, HttpStatus.OK);
+	}
+	
+	@PutMapping("/update-user")
+	public ResponseEntity<?> updateUserById(@RequestBody User user) {
+		User updatedUser = this.userServiceImpliment.updateUser(user);
+		return new ResponseEntity<>(updatedUser, HttpStatus.OK);
 	}
 	
 	

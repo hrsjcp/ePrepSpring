@@ -36,6 +36,9 @@ public class UserServiceImpliment implements UserServiceInterface {
 		this.userRepository.deleteById(userId);
 	}
 
-
+	@Override
+	public User updateUser(User user) {
+		return this.userRepository.save(user);
+	}
 
 }
