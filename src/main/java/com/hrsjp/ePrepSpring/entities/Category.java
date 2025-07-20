@@ -17,6 +17,15 @@ public class Category {
 	private String category;
 	@Column(length = 100)
 	private String description;
+
+	public Category() { }
+
+	public Category(Long id, String category, String description) {
+		this.id = id;
+		this.category = category;
+		this.description = description;
+	}
+
 	public Long getId() {
 		return id;
 	}
